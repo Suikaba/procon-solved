@@ -63,15 +63,7 @@ int main() {
         bit.add(v[i], 1);
     }
     for(int i = 0; i < m; ++i) {
-        if(v[i] < i) {
-            ans += xs[i] - xs[v[i]] - (i - v[i]);
-        }
-    }
-    bit = fenwick_tree(m);
-    for(int i = m - 1; i >= 0; --i) {
-        if(v[i] > i) {
-            ans += xs[v[i]] - xs[i] - (v[i] - i);
-        }
+        ans += abs(xs[i] - xs[v[i]]) - abs(i - v[i]);
     }
     cout << ans << endl;
 }
